@@ -5,12 +5,12 @@
  * github.com/elijahjcobb
  */
 
-import {BlizzardCommands} from "../BlizzardCommands";
+import {BlizzardCommands} from "../../BlizzardCommands";
 import {KBCommand, KBMessage, KBResponse} from "@elijahjcobb/keybase-bot-builder";
 import * as Path from "path";
 import * as FS from "fs";
 import {DarkSky, DarkSkyReportCurrently} from "@elijahjcobb/dark-sky";
-import {Wolfram} from "./Wolfram";
+import {Wolfram} from "../Wolfram";
 
 interface User {
 	username: string;

@@ -7,10 +7,10 @@
 
 import {KBBot, KBConversation, KBMessage, KBResponse} from "@elijahjcobb/keybase-bot-builder";
 import {SiDatabase} from "@element-ts/silicon";
-import {ElijahCommands} from "./commands/ElijahCommands";
-import {ZongCommands} from "./commands/ZongCommands";
-import {TrevorCommands} from "./commands/TrevorCommands";
-import {KaiCommands} from "./commands/KaiCommands";
+import {ElijahCommands} from "./commands/elijah/elijah";
+import {ZongCommands} from "./commands/zong/zong";
+import {TrevorCommands} from "./commands/trevor/trevor";
+import {KaiCommands} from "./commands/kai/kai";
 import {Wolfram} from "./commands/Wolfram";
 
 (async (): Promise<void> => {

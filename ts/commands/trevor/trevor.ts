@@ -4,12 +4,12 @@
  *	Project: mtu-blizzard
  */
 
-import { BlizzardCommands } from "../BlizzardCommands";
+import { BlizzardCommands } from "../../BlizzardCommands";
 import { KBCommand, KBMessage, KBResponse } from "@elijahjcobb/keybase-bot-builder";
-import { SimplifiedTwitterAPI } from "../twitter/simplified-twitter-api";
-import { Tweet } from "../twitter/tweet";
+import { SimplifiedTwitterAPI } from "./twitter/simplified-twitter-api";
+import { Tweet } from "./twitter/tweet";
 import { MillenniumDate, MillenniumDateMath } from "millennium";
-import { ACCESS_INFO } from "../../twitter-api-access-keys";
+import { ACCESS_INFO } from "../../../twitter-api-access-keys";
 
 /*
  * All of this stuff up here is getting initialized at import-time so that it is not reinitialized every time a relevant

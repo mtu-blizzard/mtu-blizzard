@@ -5,10 +5,10 @@
  * github.com/elijahjcobb
  */
 
-import {BlizzardCommands} from "../BlizzardCommands";
+import {BlizzardCommands} from "../../BlizzardCommands";
 import {KBCommand} from "@elijahjcobb/keybase-bot-builder";
 
-export class ZongCommands implements BlizzardCommands {
+export class KaiCommands implements BlizzardCommands {
 
 	public getCommands(): KBCommand[] {
 

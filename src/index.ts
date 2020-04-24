@@ -16,6 +16,11 @@ import {KBLogger} from "@elijahjcobb/keybase-bot-builder/dts/KBLogger";
 
 (async (): Promise<void> => {
 
+	// await SiDatabase.init({
+	// 	address: "mongodb://localhost:27017",
+	// 	database: "blizzard",
+	// });
+
 	const bot: KBBot = await KBBot.init("blizzard_t_husky", "./keybase-paperkey.txt", {
 		debugging: true,
 		logging: true

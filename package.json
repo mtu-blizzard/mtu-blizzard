@@ -15,7 +15,7 @@
 		"compile": "npm run clean && /usr/bin/tsc -p tsconfig.json",
 		"watch": "tsc -w -p .",
 		"clean": "rm -rf js && rm -rf dts",
-		"start": "node js/index.js"
+		"start": "node js/src/index.js"
 	},
 	"repository": {
 		"type": "git",

@@ -39,7 +39,7 @@ import {KBLogger} from "@elijahjcobb/keybase-bot-builder/dts/KBLogger";
 	for (const cmd of (new ZongCommands().getCommands())) bot.command(cmd);
 
 	/*
-	No point in looping over empty array.
+	Please see message in the header of /src/commands/kai/kai.ts for why this is not included.
 	 */
 	// for (const cmd of (new KaiCommands().getCommands())) bot.command(cmd);
 

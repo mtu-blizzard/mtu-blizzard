@@ -23,7 +23,7 @@ const client: SimplifiedTwitterAPI = new SimplifiedTwitterAPI(ACCESS_INFO);
  */
 const twitterAccountTranslationMap: Map<string, string> = new Map([
 	["", "michigantech"],
-	["mtuhky", "mtuhky"],
+	["hky", "mtuhky"],
 	["hockey", "mtuhky"],
 	["it", "michigantechit"],
 	["mtuhuskies", "mtuhuskies"],

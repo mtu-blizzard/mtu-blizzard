@@ -3,8 +3,8 @@
 	"version": "0.1.0",
 	"description": "",
 	"keywords": [],
-	"main": "js/index",
-	"types": "dts/index",
+	"main": "js/src/index",
+	"types": "dts/src/index",
 	"files": [
 		"js",
 		"dts"

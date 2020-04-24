@@ -10,7 +10,7 @@ import {KBCommand, KBMessage, KBResponse} from "@elijahjcobb/keybase-bot-builder
 import * as Path from "path";
 import * as FS from "fs";
 import {DarkSky, DarkSkyReportCurrently} from "@elijahjcobb/dark-sky";
-import {Wolfram} from "../Wolfram";
+import {Wolfram} from "./Wolfram";
 
 interface User {
 	username: string;
@@ -53,8 +53,7 @@ export class ElijahCommands implements BlizzardCommands {
 	private findUser(input: string): User | undefined {
 		return this.users.find((value: User): boolean => {
 			if (input.toLowerCase() === value.firstName.toLowerCase() + " " + value.lastName.toLowerCase()) return true;
-			if (input.toLowerCase() === value.username.toLowerCase()) return true;
-			return false;
+			return input.toLowerCase() === value.username.toLowerCase();
 		});
 	}
 
@@ -63,7 +62,7 @@ export class ElijahCommands implements BlizzardCommands {
 		return [
 			{
 				name: "weather",
-				description: "Get the current weather.",
+				description: "Get the current weather on campus.",
 				handler: async(msg: KBMessage, res: KBResponse): Promise<void> => {
 
 					const report: DarkSkyReportCurrently = await this.darkSky.getCurrently();

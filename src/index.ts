@@ -11,17 +11,11 @@ import {ElijahCommands} from "./commands/elijah/elijah";
 import {ZongCommands} from "./commands/zong/zong";
 import {TrevorCommands} from "./commands/trevor/trevor";
 import {KaiCommands} from "./commands/kai/kai";
-import {Wolfram} from "./commands/Wolfram";
+import {Wolfram} from "./commands/elijah/Wolfram";
 
 (async (): Promise<void> => {
 
-	// await SiDatabase.init({
-	// 	address: "mongodb://localhost:27017",
-	// 	database: "MTUBlizzard",
-	// 	verbose: true
-	// });
-
-	const bot: KBBot = await KBBot.init("otto_bot", "./keybase-paperkey.txt", {
+	const bot: KBBot = await KBBot.init("blizzard_t_husky", "./keybase-paperkey.txt", {
 		debugging: true,
 		logging: true
 	});

@@ -15,6 +15,7 @@
 		"node_modules"
 	],
 	"include": [
-		"ts"
+		"src",
+		"twitter-api-access-keys.ts"
 	]
 }

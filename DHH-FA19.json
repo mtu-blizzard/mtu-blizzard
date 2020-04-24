@@ -1,0 +1,46 @@
+{
+  "hallName": "McNair",
+  "semester": "FA19",
+  "month": [
+    {
+      "monthNum": 10,
+      "monthName": "October",
+      "days": [
+        {
+          "dayNum": 21,
+          "dayName": "Monday",
+          "breakfast": "need menu. yay placeholder data.",
+          "lunch": "",
+          "dinner": ""
+        }
+      ]
+    },
+    {
+      "monthNum": 11,
+      "monthName": "November",
+      "days": [
+        {
+          "dayNum": 1,
+          "dayName": "Friday",
+          "breakfast": "Continental Breakfast",
+          "lunch": "",
+          "dinner": ""
+        }
+      ]
+    },
+    {
+      "monthNum": 12,
+      "monthName": "December",
+      "days": [
+        {
+          "dayNum": 1,
+          "dayName": "Sunday",
+          "breakfast": "Closed Thanksgiving Break",
+          "lunch": "Closed Thanksgiving Break",
+          "dinner": "Closed Thanksgiving Break"
+        }
+      ]
+    }
+  ]
+
+}

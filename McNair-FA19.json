@@ -1,0 +1,53 @@
+{
+  "hallName": "McNair",
+  "semester": "FA19",
+  "month": [
+    {
+      "monthNum": 10,
+      "monthName": "October",
+      "days": [
+        {
+          "dayNum": 21,
+          "dayName": "Monday",
+          "breakfast": "Continental Breakfast",
+          "lunch": "Korean BBQ\n\tDixieland Cuban\n\tJasmine Rice",
+          "dinner": "Fried Chicken\n\tMac and Cheese\n\tBeans"
+        },
+        {
+          "dayNum": 22,
+          "dayName": "Tuesday",
+          "breakfast": "Continental Breakfast",
+          "lunch": "Sweet Chili Chicken Thighs\n\tTurkey Pita\n\tWaffle Fries",
+          "dinner": "Chicken Quesadillas\n\tCheese Quesadillas\n\tSpanish Rice\n\tMexican Corn\n\tAssorted Desserts"
+        }
+      ]
+    },
+    {
+      "monthNum": 11,
+      "monthName": "November",
+      "days": [
+        {
+          "dayNum": 1,
+          "dayName": "Friday",
+          "breakfast": "Continental Breakfast",
+          "lunch": "",
+          "dinner": ""
+        }
+      ]
+    },
+    {
+      "monthNum": 12,
+      "monthName": "December",
+      "days": [
+        {
+          "dayNum": 1,
+          "dayName": "Sunday",
+          "breakfast": "Closed Thanksgiving Break",
+          "lunch": "Closed Thanksgiving Break",
+          "dinner": "Closed Thanksgiving Break"
+        }
+      ]
+    }
+  ]
+
+}

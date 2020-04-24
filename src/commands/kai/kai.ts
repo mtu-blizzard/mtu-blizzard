@@ -18,6 +18,22 @@ Imports from Kai's code that is not being used.
 // import * as Path from "path";
 // import {IncomingMessage} from "http";
 
+
+
+/*
+Upon merging Kai's code, of the 2 parts he was tasked with implementing, both did not work. In his webcam command
+he was referencing his C drive which obviously is not going to work in production. It was a little messy so I just
+rewrote all of it real quick so that it would 1. work, 2. manage files correctly, 3. be easier to use as the end user.
+His dining commands did not work as he did not even finish entering in the meal data.
+
+Because of this, I have included his source code that does not work so I highlighted it out and took it upon myself to
+do it the day this semester long project is due because he has yet to complete one single piece of working code.
+
+Feel free to contact me (ejcobb@mtu.edu) or Trevor Sears (ttsears@mtu.edu) for any questions or concerns with the
+issues stated above.
+ */
+
+
 export class KaiCommands implements BlizzardCommands {
 
 	public getCommands(): KBCommand[] {
@@ -305,7 +321,7 @@ export class KaiCommands implements BlizzardCommands {
 			// 			case "portage-west":
 			// 				image = "http://webcams.mtu.edu/images/webcam29.jpg";
 			// 				break;
-			// 			case "portage-east":
+			// 			case "portage-ecommandsast":
 			// 				image = "http://webcams.mtu.edu/images/webcam28.jpg";
 			// 				break;
 			// 			case "pressbox":

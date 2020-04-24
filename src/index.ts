@@ -12,6 +12,7 @@ import {ZongCommands} from "./commands/zong/zong";
 import {TrevorCommands} from "./commands/trevor/trevor";
 import {KaiCommands} from "./commands/kai/kai";
 import {Wolfram} from "./commands/elijah/Wolfram";
+import {KBLogger} from "@elijahjcobb/keybase-bot-builder/dts/KBLogger";
 
 (async (): Promise<void> => {
 
@@ -28,17 +29,19 @@ import {Wolfram} from "./commands/elijah/Wolfram";
 
 	bot.onNormalMessage(async (msg: KBMessage, res: KBResponse): Promise<void> => {
 
-		const answer: string | undefined = await Wolfram.getAnswerForQuestion(msg.getContent());
-		if (!answer) return await res.send(":books: Blizzard is smart but he doesn't know the answer to that.");
-
-		await res.send(answer);
+		console.log(msg.getUsername() + " asked: \"" + msg.getContent() + "\"");
+		await res.send(await Wolfram.getAnswerForQuestion(msg.getContent()));
 
 	});
 
 	for (const cmd of (new ElijahCommands().getCommands())) bot.command(cmd);
 	for (const cmd of (new TrevorCommands().getCommands())) bot.command(cmd);
 	for (const cmd of (new ZongCommands().getCommands())) bot.command(cmd);
-	for (const cmd of (new KaiCommands().getCommands())) bot.command(cmd);
+
+	/*
+	No point in looping over empty array.
+	 */
+	// for (const cmd of (new KaiCommands().getCommands())) bot.command(cmd);
 
 	bot.start();
 

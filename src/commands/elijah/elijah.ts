@@ -11,6 +11,9 @@ import * as Path from "path";
 import * as FS from "fs";
 import {DarkSky, DarkSkyReportCurrently} from "@elijahjcobb/dark-sky";
 import {Wolfram} from "./Wolfram";
+import HTTP from "http";
+import OS from "os";
+import Crypto from "crypto";
 
 interface User {
 	username: string;
@@ -55,6 +58,21 @@ export class ElijahCommands implements BlizzardCommands {
 			if (input.toLowerCase() === value.firstName.toLowerCase() + " " + value.lastName.toLowerCase()) return true;
 			return input.toLowerCase() === value.username.toLowerCase();
 		});
+	}
+
+	private generateRandomPath(): string {
+
+		return Path.join(OS.tmpdir(), "blizzard_t_husky_webcam_" + Crypto.randomBytes(8).toString("hex") + ".jpg");
+
+	}
+
+	private getValidPathForNewImageFile(): string {
+
+		let path: string = this.generateRandomPath();
+		while (FS.existsSync(path)) path = this.generateRandomPath();
+
+		return path;
+
 	}
 
 	public getCommands(): KBCommand[] {
@@ -121,6 +139,67 @@ export class ElijahCommands implements BlizzardCommands {
 
 					await res.send("not yet :slightly_frowning_face:...");
 
+				}
+			},
+			{
+				name: "webcam",
+				description: "View a live updated image from one of the many webcams on campus.",
+				usage: "!webcam name or !webcam list",
+				handler: async (msg: KBMessage, res: KBResponse): Promise<void> => {
+
+					const webCams: { [name: string]: number } = {
+						aerial: 16,
+						statue: 26,
+						library: 7,
+						walker: 31,
+						sdc: 4,
+
+						/*
+						For some reason MTU's webcam site returns this image and then before the stream is done
+						overwrites it to the text. So I am removing this one until they fix their site.
+						 */
+
+						// clock: 25,
+						houghton: 15,
+						bridge: 11,
+						ripley1: 30,
+						ripley2: 21,
+						trails1: 14,
+						trails2: 13,
+						portage1: 27,
+						portage2: 29,
+						portage3: 28,
+						pressbox: 35,
+					};
+
+					let requestedName: number | string | undefined = msg.getParameters()[0];
+					if (requestedName === undefined || typeof requestedName === "number") requestedName = "list";
+					requestedName = requestedName.toLowerCase();
+
+					if (requestedName === "list" || requestedName === "") {
+
+						const formattedNames: string = Object.keys(webCams)
+							.map((name: string): string => {return "  - " + name; })
+							.join("\n");
+
+						return await res.send(`To view the latest image from a webcam simply call: \`!webcam [name]\`. The names allowed are:\n${formattedNames}`);
+
+					}
+
+					const imageId: number | undefined = webCams[requestedName];
+					if (imageId === undefined) return await res.send("Whoops! I don't know that webcam. Call `!webcam list` for the cameras I support.");
+
+					const filePath: string = this.getValidPathForNewImageFile();
+					const writeStream: FS.WriteStream = FS.createWriteStream(filePath);
+					HTTP.get(`http://webcams.mtu.edu/images/webcam${imageId}.jpg`, (imageDataStream: HTTP.IncomingMessage): void => {
+						const downloadStream: FS.WriteStream = imageDataStream.pipe(writeStream);
+						downloadStream.on("finish", async(): Promise<void> => {
+
+							await res.sendFile(filePath);
+							FS.unlinkSync(filePath);
+
+						});
+					});
 				}
 			}
 		];
